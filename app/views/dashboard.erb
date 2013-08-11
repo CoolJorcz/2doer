@@ -3,24 +3,31 @@
   <form class="task_creator" action="/post/tasks/new" method="post">
     <input type="text" name="name_doer" placeholder="handle"> 
     <input type="text" name="name_body" placeholder="task">
+    <input type="submit" name="submit_task" value="Submit">
   </form>
 <div class="section group">
   <div class="col span_1_of_3">
     <h2>Incoming</h2>
       <ul>
-          <li>I'm a task!</li>
+          <% @user.incoming.each do |task| %>
+          <li><a href="/tasks/<%=task.id%>"><%= task.name %></li>
+          <% end %>
       </ul>
   </div>
   <div class="col span_1_of_3">
     <h2>Assigned</h2>
       <ul>
-          <li>I'm a task!</li>
+          <% @user.accepted.each do |task| %>
+           <li><a href="/tasks/<%=task.id%>"><%= task.name %></li>
+          <% end %>
       </ul>
   </div>
   <div class="col span_1_of_3">
     <h2>Requests</h2>
       <ul>
-          <li>I'm a task!</li>
+          <% @user.requested.each do |task| %>
+            <li><a href="/tasks/<%=task.id%>"><%= task.name %></li>
+          <% end %>
       </ul>
   </div>
 </div>

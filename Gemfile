@@ -8,6 +8,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 
 # Use Thin for our web server
+gem 'shotgun'
 gem 'thin'
 
 gem 'activesupport'

@@ -7,12 +7,14 @@ get '/fetch' do
   end
   twitters = Twitter.search("to:#{current_user.handle} #2doer", :since_id => latest_tweet).statuses
   twitters.reverse.map do |tweet|
-    body = tweet[:text].gsub('[@#][^\s]*\s?', '') + " - @#{tweet[:user][:screen_name]}"
+    body = tweet[:text].gsub(/[@#][^\s]*\s?/, '') + " - @#{tweet[:user][:screen_name]}"
     task = Task.create(:body => body,
-                :status => "pending",
+                :bluejay => "pending",
                 :tweet_id => tweet[:id].to_s,
                 :asker => User.where(:handle => tweet[:user][:screen_name]).first_or_create,
                 :doer => current_user)
+    task.bluejay = "pending"
+    task.save
     {:body => body, :id => task.id}
   end.to_json
 end

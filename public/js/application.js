@@ -1,7 +1,12 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  
+  $.getJSON('/fetch', function(data) {
+    $.each(data, function(key, value) {
+      //console.log(key, value)
+      $('#incoming ul').prepend('<table><tr><td>' + value['body'] + '</td><td><a href="/tasks/' + value['id'] + '/accept">YES</a></td><td><a href ="/tasks/' + value['id'] + '/reject">NO</a></td></tr></table>')
+      //$('#incoming ul').append("<li>hello</li>")
+    }); 
+  });
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 });
+

@@ -1,8 +1,8 @@
 <div class="container">
-  <h1>Sorry you can't accept this</h1>
-  <form class="let_them_know" action="/decline" method="post">
-    <input type="text" name="task[accepted]" value="@user.asker I hate you!">
-    <input type="submit" name="submit_task" value="Submit">
+  <h1>Let <%= @task.asker.name %> know that you've declined :(</h1>
+    <form class="let_them_know" action="/tasks/<%= @task.id %>/decline" method="post">
+    <input type="text" name="body" value="Hey @<%= task.asker.handle %>, No way!">
+    <input type="submit" name="submit_task" value="I refuse!">
  </form>
  <br>
-    <a href="/dashboard">Skip</a>
+  <!--   <a href="/dashboard">Skip</a> -->

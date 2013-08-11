@@ -7,10 +7,7 @@ class CreateTasks < ActiveRecord::Migration
       t.integer  :doer_id
       t.integer  :asker_id
       t.datetime :goal_time
-      t.datetime :tweeted_at
       t.datetime :completed_at
-
-
       t.timestamps 
     end
   end

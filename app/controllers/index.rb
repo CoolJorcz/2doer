@@ -22,3 +22,8 @@ end
 post '/tweet' do
 
 end
+
+
+get '/dashboard' do
+  erb :dashboard
+end

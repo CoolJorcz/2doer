@@ -8,18 +8,17 @@ get '/logout' do
   redirect '/'
 end
 
-post '/tweet' do
-  # text = params[:text]
-  # @current_user = current_user
-  
-  # client = Twitter::Client.new(oauth_token: @current_user.oauth_token, 
-  #                              oauth_token_secret: @current_user.oauth_secret)
-  # #is it possible to call methods on the helper method which generates a current user
-  # @current_tweet = client.update(text)
+get '/auth/twitter/callback' do
+  @user = User.login(request.env['omniauth.auth'])
+  session[:id] = @user.id
+  redirect "/dashboard/#{@user.handle}"
+end
 
-  # if request.xhr?
-  #   erb :_tweet_content, layout: false
-  # else
-  #   erb :index
-  # end
+get '/dashboard/:handle' do
+  erb :dashboard
+end
+
+
+post '/tweet' do
+
 end

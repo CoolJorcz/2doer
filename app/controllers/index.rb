@@ -40,4 +40,3 @@ end
 #   @user.tweet_invite(params)
 #   redirect '/dashboard'
 # end
-

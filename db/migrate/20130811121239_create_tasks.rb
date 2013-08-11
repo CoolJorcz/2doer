@@ -4,6 +4,7 @@ class CreateTasks < ActiveRecord::Migration
       t.text     :body
       t.text     :notes
       t.string   :status
+      t.string   :tweet_id
       t.integer  :doer_id
       t.integer  :asker_id
       t.datetime :goal_time

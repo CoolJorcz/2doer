@@ -15,35 +15,29 @@ get '/auth/twitter/callback' do
 end
 
 get '/dashboard/:handle' do
+  @user = User.find(session[:id])
   erb :dashboard
 end
 
 post '/tasks/new' do
-  if  User.any?(:handle => params[:doer])
+  # if  User.where(:handle =>  strip_handle(params[:doer])).any?
     @user = User.find(session[:id])
     @user.tweet_task(params)
     redirect "/dashboard/#{@user.handle}"
-  else 
-    redirect "/invite"
-  end
+  # else 
+  #   p params
+  #   redirect "/invite"
+  # end
 end
 
-get '/invite' do 
-  @user = User.find(session[:id])
-  erb :invite
-end
+# get '/invite' do 
+#   @user = User.find(session[:id])
+#   erb :invite
+# end
 
-post '/invite' do
-  @user = User.find(session[:id])
-  @user.tweet_invite(params)
-  redirect '/dashboard'
-end
+# post '/invite' do
+#   @user = User.find(session[:id])
+#   @user.tweet_invite(params)
+#   redirect '/dashboard'
+# end
 
-post '/tweet' do
-
-end
-
-
-get '/dashboard' do
-  erb :dashboard
-end

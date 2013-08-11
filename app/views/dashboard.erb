@@ -1,34 +1,42 @@
 <div class="container">
-  <h1>Welcome, Richard</h1>
-  <form class="task_creator" action="/post/tasks/new" method="post">
-    <input type="text" name="name_doer" placeholder="handle"> 
-    <input type="text" name="name_body" placeholder="task">
-    <input type="submit" name="submit_task" value="Submit">
+  <h1>Welcome, <%= @user.name %></h1>
+  <form class="task_creator" action="/tasks/new" method="post">
+    <input type="text" name="doer" placeholder="@username"> 
+    <textarea name="body" placeholder="What do you want them to do?"></textarea>
+    <input type="submit" name="submit_task" value="2Do!">
   </form>
+
 <div class="section group">
   <div class="col span_1_of_3">
     <h2>Incoming</h2>
       <ul>
+        <% if @user.incoming %>
           <% @user.incoming.each do |task| %>
-          <li><a href="/tasks/<%=task.id%>"><%= task.name %></li>
+          <li><a href="/tasks/<%=task.id%>"><%= task.body %></a></li>
           <% end %>
+        <% end %>
       </ul>
   </div>
   <div class="col span_1_of_3">
-    <h2>Assigned</h2>
+    <h2>Accepted</h2>
       <ul>
+        <% if @user.accepted %>
           <% @user.accepted.each do |task| %>
-           <li><a href="/tasks/<%=task.id%>"><%= task.name %></li>
+           <li><a href="/tasks/<%=task.id%>"><%= task.body %></a></li>
           <% end %>
+        <% end %>
       </ul>
   </div>
   <div class="col span_1_of_3">
     <h2>Requests</h2>
       <ul>
-          <% @user.requested.each do |task| %>
-            <li><a href="/tasks/<%=task.id%>"><%= task.name %></li>
+        <% if @user.requests %>
+          <% @user.requests.each do |task| %>
+            <li><a href="/tasks/<%=task.id%>"><%= task.body %></a></li>
           <% end %>
+        <% end %>
       </ul>
   </div>
 </div>
+
 </div>

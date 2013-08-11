@@ -5,3 +5,8 @@ end
 def logged_in?
   !current_user.nil?
 end
+
+def strip_handle(handle)
+  handle.gsub(/(@)/,"")
+end
+

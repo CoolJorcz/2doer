@@ -1,9 +1,11 @@
 <div class="container">
-  <h1>Welcome, Richard</h1>
+  <h1>Accept a Task</h1>
+  <p>@user.asker.handle</p>
+  <p>@user.asker.task.body</p>
+  <p>@user.asker.tweeted_at</p>
   <form class="task_creator" action="/post/tasks/new" method="post">
-    <input type="text" name="name_doer" placeholder="handle"><br>
-    <textarea col="500" rows="8" name="task[notes]" placeholder="Task Notes"> </textarea><br>
-    <input type="text" name="task[body]" placeholder="task">
+    <textarea col="500" rows="8" name="task[notes]">Notes</textarea><br>
+    <label for="task[goal_time]">Finish Task by:</label>
     <input type="date" name="task[goal_time]">
     <input type="submit" name="submit_task" value="Submit">
  </form>

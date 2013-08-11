@@ -30,6 +30,30 @@ post '/tasks/new' do
   # end
 end
 
+get '/tasks/:id/accept' do
+  @task = Task.find(params[:id])
+  erb :"_confirm"
+end
+
+get '/tasks/:id/reject' do
+  @task = Task.find(params[:id])
+  erb :"_confirm"
+end
+
+post '/tasks/:id/accept' do
+  @task = Task.find(params[:id])
+  @user = User.find(session[:id])
+  @task.accept_tweet(params[:body], @user)
+  redirect "/dashboard/#{@user.handle}"
+end
+
+post '/tasks/:id/decline' do
+  @task = Task.find(params[:id])
+  @user = User.find(session[:id])
+  @task.decline_tweet(params[:body], @user)
+  redirect "/dashboard/#{@user.handle}"
+end
+
 # get '/invite' do 
 #   @user = User.find(session[:id])
 #   erb :invite

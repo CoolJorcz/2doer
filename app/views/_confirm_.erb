@@ -1,8 +1,8 @@
 <div class="container">
-  <h1>Let Them Know!</h1>
-  <form class="let_them_know" action="Not sure" method="post">
-    <input type="text" name="task[accepted]" value="@user.asker I accepted this!">
-    <input type="submit" name="submit_task" value="Submit">
+  <h1>Let <%= @task.asker.name %> know that you've accepted :)</h1>
+  <form class="let_them_know" action="/tasks/<%= @task.id %>/accept" method="post">
+    <input type="text" name="body" value="Hey @<%= task.asker.handle %>, I'll do it!">
+    <input type="submit" name="submit_task" value="Accept!">
  </form>
  <br>
-    <a href="/dashboard">Skip</a>
+    <!-- <a href="/dashboard">Skip</a> -->

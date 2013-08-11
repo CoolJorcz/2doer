@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
                                   :oauth_token => self.token,
                                   :oauth_token_secret => self.secret)
 
-     client.update(params[:handle] + " " + params[:body] + " " + "#2doer")
+     client.update(params[:doer] + " " + params[:body] + " " + "#2doer")
      # client.update("@" + task.doer.handle + " " + task.body + " #2doer")
   end
 

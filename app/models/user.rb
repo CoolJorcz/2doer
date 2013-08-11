@@ -11,10 +11,20 @@ class User < ActiveRecord::Base
     @user.save
     @user
   end
-  # def create_client
-  #   Twitter::Client.new(
-  #       :oauth_token => self.oauth_token,
-  #       :oauth_token_secret => self.oauth_secret
-  #     )
-  # end
+
+  def tweet_task(params)
+     doer = User.where(:handle => params[:doer])
+     task = Task.new(:asker_id => self.id, :doer_id => doer.id,:body => params[:body])
+     task.save
+     client = Twitter::Client.new(oauth_token: self.token,
+                                 oauth_token_secret: self.secret)
+
+     client.update(t.doer + " " + task.body + " #2doer")
+  end
+
+  def tweet_invite(params)
+    client = Twitter::Client.new(oauth_token: self.token,
+                                 oauth_token_secret: self.secret)
+    client.update(params[:invitee] + " " + params[:invite] + " #2doer")
+  end
 end

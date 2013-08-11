@@ -14,12 +14,15 @@ class User < ActiveRecord::Base
 
   def tweet_task(params)
      doer = User.where(:handle => params[:doer])
-     task = Task.new(:asker_id => self.id, :doer_id => doer.id,:body => params[:body])
+     task = Task.new(:asker_id => self.id, 
+                     :doer_id => doer.id,
+                     :body => params[:body],
+                     :status => "incoming")
      task.save
      client = Twitter::Client.new(oauth_token: self.token,
-                                 oauth_token_secret: self.secret)
+                                  oauth_token_secret: self.secret)
 
-     client.update(t.doer + " " + task.body + " #2doer")
+     client.update(task.doer + " " + task.body + " #2doer")
   end
 
   def tweet_invite(params)

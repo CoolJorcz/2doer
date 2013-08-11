@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>@user.asker</h1>
+  <p>@user.asker.task</p>
+  <form class="let_them_know" action="/accept" method="post">
+    <input type="submit" name="submit_task" value="Accept">
+ </form>
+ <form class="let_them_know" action="/decline" method="post">
+    <input type="submit" name="submit_task" value="Reject">
+ </form>
+ <br>
+    <a href="/dashboard">Back to dashboard</a>

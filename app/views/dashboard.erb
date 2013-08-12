@@ -11,17 +11,21 @@
     <h2>Incoming</h2>
       <ul>
         <% if @user.obligations.incoming %>
+        <table>
+          <thead>
+            <th>Task</th>
+            <th>Sender</th>
+            <th>Action</th>
+          </thead>
           <% @user.incoming.each do |task| %>
-        <li>
-          <table>
            <tr>
             <td><%= task.body %></td>
-            <td><a href ='/tasks/<%= task.id %>/accept'>YES</a></td>
-            <td><a href ='/tasks/<%= task.id %>/reject'>NO</a></td>
+            <td>@<%= User.find(task.asker_id).handle %></td>
+            <td><a href ='/tasks/<%= task.id %>/accept'>Accept</a></td>
+            <td><a href ='/tasks/<%= task.id %>/reject'>Reject</a></td>
            </tr>
-          </table>
-      </li>
           <% end %>
+          </table>
         <% end %>
       </ul>
   </div>
@@ -29,9 +33,20 @@
     <h2>Accepted</h2>
       <ul>
         <% if @user.obligations.accepted %>
+        <table>
+          <thead>
+            <th>Task</th>
+            <th>Sender</th>
+            <th>Complete</th>
+          </thead>
           <% @user.accepted.each do |task| %>
-           <li><%= task.body %><a href="/tasks/<%=task.id%>/complete">DONE!</a></li>
+          <tr>
+            <td><%= task.body %></td>
+            <td>@<%= task.asker.handle %></td>
+            <td><a href="/tasks/<%=task.id%>/complete">DONE!</a></td>
+            </tr>
           <% end %>
+          </table>
         <% end %>
       </ul>
   </div>
@@ -39,14 +54,20 @@
     <h2>Requests</h2>
       <ul>
         <% if @user.requests %>
+        <table>
           <% @user.requests.each do |task| %>
-            <table>
+            <thead>
+            <th>Task</th>
+            <th>To</th>
+            <th>Status</th>
+            </thead>
              <tr>
-              <td><a href="/tasks/<%=task.id%>"><%= task.body %></a></td>
-              <td><%= task.bluejay %></td>
+              <td><%= task.body %> </td>
+              <td>@<%= task.doer.handle %> </td>
+              <td><%= task.bluejay %> </td>
              </tr>
-            </table>
           <% end %>
+          </table>
         <% end %>
       </ul>
   </div>

@@ -7,7 +7,7 @@ get '/fetch' do
   end
   twitters = Twitter.search("to:#{current_user.handle} #2doer", :since_id => latest_tweet).statuses
   twitters.reverse.map do |tweet|
-    body = tweet[:text].gsub(/[@#][^\s]*\s?/, '') + " - @#{tweet[:user][:screen_name]}"
+    body = tweet[:text].gsub(/[@#][^\s]*\s?/, '')
     task = Task.create(:body => body,
                 :bluejay => "pending",
                 :tweet_id => tweet[:id].to_s,

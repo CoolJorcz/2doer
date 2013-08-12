@@ -55,6 +55,18 @@ post '/tasks/:id/decline' do
   redirect "/dashboard/#{@user.handle}"
 end
 
+get '/tw/:id' do
+  @task = Task.find(params[:id])
+  redirect "http://twitter.com/#{@task.asker.handle}/status/#{@task.tweet_id}"
+end
+
+get '/tasks/:id/complete' do
+  @task = Task.find(params[:id])
+  @task.complete_tweet(current_user)
+
+  @task.update(:bluejay => "completed")
+  redirect "/dashboard/#{@task.doer.handle}"
+end
 # get '/invite' do 
 #   @user = User.find(session[:id])
 #   erb :invite

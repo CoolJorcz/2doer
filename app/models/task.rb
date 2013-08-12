@@ -12,12 +12,11 @@ class Task < ActiveRecord::Base
     self.save
     user = current_user
 
-    client = Twitter::Client.new(:consumer_key => ENV['TWITTER_KEY'],
-                                  :consumer_secret => ENV['TWITTER_SECRET'],
-                                  :oauth_token => user.token,
-                                  :oauth_token_secret => user.secret)
+    client = Twitter::Client.new(
+      :oauth_token => user.token,
+      :oauth_token_secret => user.secret)
 
-     client.update(body + self.tweet_id)
+     client.update("@" + self.asker.handle + " " + body + " 2doer.us/tw/" + self.id.to_s, { "in_reply_to_status_id" => self.tweet_id } )
   end
 
   def decline_tweet(body, current_user)
@@ -25,11 +24,21 @@ class Task < ActiveRecord::Base
     self.save
     user = current_user
 
-    client = Twitter::Client.new(:consumer_key => ENV['TWITTER_KEY'],
-                                  :consumer_secret => ENV['TWITTER_SECRET'],
-                                  :oauth_token => user.token,
-                                  :oauth_token_secret => user.secret)
+    client = Twitter::Client.new(
+      :oauth_token => user.token,
+      :oauth_token_secret => user.secret)
 
-     client.update(body + self.tweet_id)
+     client.update("@" + self.asker.handle + " " + body + " 2doer.us/tw/" + self.id.to_s, { "in_reply_to_status_id" => self.tweet_id } )
+  end
+
+  def complete_tweet(curren_user)
+    self.bluejay = "completed"
+    self.save
+
+    client = Twitter::Client.new(
+      :oauth_token => curren_user.token,
+      :oauth_token_secret => curren_user.secret)
+
+    client.update("@" + self.asker.handle + " All done! 2doer.us/tw/" + self.id.to_s, { "in_reply_to_status_id" => self.tweet_id } )
   end
 end

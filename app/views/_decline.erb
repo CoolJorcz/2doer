@@ -1,7 +1,7 @@
 <div class="container">
-  <h1>Let <%= @task.asker.name %> know that you've declined :(</h1>
+  <h1>Let <%= @task.asker.handle %> know that you've declined :(</h1>
     <form class="let_them_know" action="/tasks/<%= @task.id %>/decline" method="post">
-    <input type="text" name="body" value="Hey @<%= @task.asker.handle %>, No way!">
+    <input type="text" name="body" value="No way!">
     <input type="submit" name="submit_task" value="I refuse!">
  </form>
  <br>

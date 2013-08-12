@@ -30,7 +30,7 @@
       <ul>
         <% if @user.obligations.accepted %>
           <% @user.accepted.each do |task| %>
-           <li><a href="/tasks/<%=task.id%>/complete"><%= task.body %></a>DONE!</li>
+           <li><%= task.body %><a href="/tasks/<%=task.id%>/complete">DONE!</a></li>
           <% end %>
         <% end %>
       </ul>

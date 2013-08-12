@@ -2,7 +2,15 @@
   margin: 20px auto;
   width: 800px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  border-radius: 10px;
+  /*border: 1px dotted black;*/
+  background-color: #028DF4;
+
+}
+
+a {
+  text-decoration: none;
+  color: ;
 }
 /*  SECTIONS  */
 .section {
@@ -12,6 +20,13 @@
 }
 h1 {
   text-align: left;
+  padding-left: 10px;
+  font-family: 'Happy Monkey', cursive;
+}
+
+body {
+  background-image: url('http://images1.fanpop.com/images/photos/2600000/HQ-France-wallpapers-france-2627157-1600-1200.jpg');*/
+  background-repeat: no-repeat;*/
 }
 
 /*  COLUMN SETUP  */
@@ -19,7 +34,35 @@ h1 {
   display: block;
   float:left;
   margin: 1% 0 1% 1.6%;
+  background-color: #D0C1AE;
+  border-radius: 5px;
 }
+
+.span_1_of_1 {
+  width: 100%;
+  margin-left: 0px;
+}
+
+h2 {
+  padding-left: 9px;
+  font-family: 'Happy Monkey', cursive;
+}
+
+.navbar a{
+  position: relative;
+  top: 4em;
+  left: 90%;
+}
+.span_1_of_1 form {
+  background-color: #84C7FE;
+  padding: 10px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+
+}
+
+
+
 .col:first-child { margin-left: 0; }
 
 /*  GRID OF THREE  */

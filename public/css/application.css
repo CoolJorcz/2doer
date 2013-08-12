@@ -1,8 +1,18 @@
 .container {
-  margin: 20px auto;
-  width: 1200px;
+  margin: 40px 10px 20px 30px;
+  width: 60%;
+  height: 250px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  border-radius: 10px;
+  /*border: 1px dotted black;*/
+  /*background-color: #028DFE;*/
+  background-color:rgba(175,220,251,0.6);
+
+}
+
+a {
+  text-decoration: none;
+  color: ;
 }
 /*  SECTIONS  */
 .section {
@@ -12,6 +22,14 @@
 }
 h1 {
   text-align: left;
+  padding-left: 10px;
+  font-family: 'Happy Monkey', cursive;
+  color: #0D2010;
+}
+
+body {
+  background-image: url('http://images1.fanpop.com/images/photos/2600000/HQ-France-wallpapers-france-2627157-1600-1200.jpg');*/
+  background-repeat: no-repeat;*/
 }
 
 /*  COLUMN SETUP  */
@@ -19,7 +37,122 @@ h1 {
   display: block;
   float:left;
   margin: 1% 0 1% 1.6%;
+  background-color: #C3E7FD;
+  border-radius: 5px;
 }
+
+.span_1_of_1 {
+  width: 100%;
+  margin-left: 0px;
+}
+
+h2 {
+  padding-left: 9px;
+  font-family: 'Happy Monkey', cursive;
+  color: #0D2010;
+}
+
+.bluejay {
+  width: 100px;
+  height: 100px;
+  border: 3px solid white;
+  margin-top: 75px;
+  border-radius: 3px;
+  background-color: #5AB7FD;
+  border-color: #FBFFFF;
+}
+
+a.login {
+  position: relative;
+  top: -3em;
+  left: 78%;
+  padding:    10px 20px;
+  font-size:    14px;
+  background-color: #5AB7FD;
+  font-weight:    bold;
+  color:      #FFFFFF;
+  border-radius: 5px;
+  border: 3px solid;
+  border-color: #FBFFFF;
+  height: auto;
+  width: 90px;
+}
+
+.navbar a{
+  position: relative;
+  top: 4.2em;
+  left: 87%;
+  border-style: none ;
+  padding:    10px 20px;
+  font-size:    14px;
+  background-color: #028DF4;
+  font-weight:    bold;
+  color:      #FFFFFF;
+  border-radius: 5px;
+  height: auto;
+  width: 90px;
+}
+
+
+.navbar a:hover{
+  border-style: none ;
+  padding:    10px 20px;
+  font-size:    14px;
+  background-color: #223424;
+  font-weight:    bold;
+  color:      #FFFFFF;
+  border-radius: 5px;
+
+ } 
+
+
+.span_1_of_1 form {
+  background-color: #84C7FE;
+  padding: 10px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+
+}
+
+.span_1_of_1 form input.button{
+  border-style: none ;
+  padding:    10px 20px;
+  font-size:    14px;
+  background-color: #028DF4;
+  font-weight:    bold;
+  color:      #FFFFFF;
+  border-radius: 5px;
+  height: auto;
+  width: 90px;
+
+ } 
+
+
+
+.span_1_of_1 form input.body{
+  width: 420px;
+  margin-right: 5px;
+  margin-left: 5px;
+} 
+.span_1_of_1 form input{
+  height: 25px;
+  border-radius: 3px;
+} 
+
+.span_1_of_1 form input.handle{
+  width: 235px;
+} 
+ .span_1_of_1 form input.button:hover{
+  border-style: none ;
+  padding:    10px 20px;
+  font-size:    14px;
+  background-color: #223424;
+  font-weight:    bold;
+  color:      #FFFFFF;
+  border-radius: 5px;
+
+ } 
+
 .col:first-child { margin-left: 0; }
 
 /*  GRID OF THREE  */

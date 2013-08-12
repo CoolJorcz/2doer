@@ -5,6 +5,10 @@
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/application.css">
 
+  <link href='http://fonts.googleapis.com/css?family=Happy+Monkey' rel='stylesheet' type='text/css'>
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
@@ -12,7 +16,9 @@
 </head>
 <body>
   <div class="navbar">
-    <a href="/logout">Logout</a>
+    <% unless session[:id] == nil %>
+    <a class='button' href="/logout">Logout</a>
+    <% end %>
   </div>
   <%= yield %>
 </body>

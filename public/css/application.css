@@ -1,10 +1,12 @@
 .container {
-  margin: 20px auto;
-  width: 800px;
+  margin: 40px 10px 20px 30px;
+  width: 60%;
+  height: 250px;
   padding: 0px 20px 20px 20px;
   border-radius: 10px;
   /*border: 1px dotted black;*/
-  background-color: #028DF4;
+  /*background-color: #028DFE;*/
+  background-color:rgba(175,220,251,0.6);
 
 }
 
@@ -22,6 +24,7 @@ h1 {
   text-align: left;
   padding-left: 10px;
   font-family: 'Happy Monkey', cursive;
+  color: #0D2010;
 }
 
 body {
@@ -34,7 +37,7 @@ body {
   display: block;
   float:left;
   margin: 1% 0 1% 1.6%;
-  background-color: #D0C1AE;
+  background-color: #C3E7FD;
   border-radius: 5px;
 }
 
@@ -46,13 +49,63 @@ body {
 h2 {
   padding-left: 9px;
   font-family: 'Happy Monkey', cursive;
+  color: #0D2010;
+}
+
+.bluejay {
+  width: 100px;
+  height: 100px;
+  border: 3px solid white;
+  margin-top: 75px;
+  border-radius: 3px;
+  background-color: #5AB7FD;
+  border-color: #FBFFFF;
+}
+
+a.login {
+  position: relative;
+  top: -3em;
+  left: 78%;
+  padding:    10px 20px;
+  font-size:    14px;
+  background-color: #5AB7FD;
+  font-weight:    bold;
+  color:      #FFFFFF;
+  border-radius: 5px;
+  border: 3px solid;
+  border-color: #FBFFFF;
+  height: auto;
+  width: 90px;
 }
 
 .navbar a{
   position: relative;
-  top: 4em;
-  left: 90%;
+  top: 4.2em;
+  left: 87%;
+  border-style: none ;
+  padding:    10px 20px;
+  font-size:    14px;
+  background-color: #028DF4;
+  font-weight:    bold;
+  color:      #FFFFFF;
+  border-radius: 5px;
+  height: auto;
+  width: 90px;
 }
+
+
+.navbar a:hover{
+  border-style: none ;
+  padding:    10px 20px;
+  font-size:    14px;
+  background-color: #223424;
+  font-weight:    bold;
+  color:      #FFFFFF;
+  border-radius: 5px;
+
+ } 
+
+
 .span_1_of_1 form {
   background-color: #84C7FE;
   padding: 10px;
@@ -61,7 +114,44 @@ h2 {
 
 }
 
+.span_1_of_1 form input.button{
+  border-style: none ;
+  padding:    10px 20px;
+  font-size:    14px;
+  background-color: #028DF4;
+  font-weight:    bold;
+  color:      #FFFFFF;
+  border-radius: 5px;
+  height: auto;
+  width: 90px;
 
+ } 
+
+
+
+.span_1_of_1 form input.body{
+  width: 420px;
+  margin-right: 5px;
+  margin-left: 5px;
+} 
+.span_1_of_1 form input{
+  height: 25px;
+  border-radius: 3px;
+} 
+
+.span_1_of_1 form input.handle{
+  width: 235px;
+} 
+ .span_1_of_1 form input.button:hover{
+  border-style: none ;
+  padding:    10px 20px;
+  font-size:    14px;
+  background-color: #223424;
+  font-weight:    bold;
+  color:      #FFFFFF;
+  border-radius: 5px;
+
+ } 
 
 .col:first-child { margin-left: 0; }
 

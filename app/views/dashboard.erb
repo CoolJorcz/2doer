@@ -2,9 +2,9 @@
   <div class="col span_1_of_1">
     <h1>Welcome, <%= @user.name %></h1>
     <form class="task_creator" action="/tasks/new" method="post">
-      <input type="text" name="doer" placeholder="@username"> 
-      <textarea rows = "1" name="body" placeholder="Enter your task!"></textarea>
-      <input type="submit" name="submit_task" value="2Do!">
+      <input class='handle' type="text" name="doer" placeholder="@username"> 
+      <input class='body' type="text"name="body" placeholder="Enter your task!">
+     <input class='button' type="submit" name="submit_task" value="2Do!">
     </form>
   </div>
 

@@ -1,13 +1,12 @@
 .container {
   margin: 40px 10px 20px 30px;
-  width: 60%;
+  width: 90%;
   height: 250px;
   padding: 0px 20px 20px 20px;
   border-radius: 10px;
   /*border: 1px dotted black;*/
   /*background-color: #028DFE;*/
   background-color:rgba(175,220,251,0.6);
-
 }
 
 a {
@@ -124,9 +123,7 @@ a.login {
   border-radius: 5px;
   height: auto;
   width: 90px;
-
  } 
-
 
 
 .span_1_of_1 form input.body{
@@ -153,6 +150,9 @@ a.login {
 
  } 
 
+ul {
+  padding-left: 15px;
+}
 .col:first-child { margin-left: 0; }
 
 /*  GRID OF THREE  */

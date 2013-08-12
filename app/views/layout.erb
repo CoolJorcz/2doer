@@ -15,11 +15,13 @@
   <title></title>
 </head>
 <body>
+  <div class="container">
   <div class="navbar">
     <% unless session[:id] == nil %>
     <a class='button' href="/logout">Logout</a>
     <% end %>
   </div>
   <%= yield %>
+  </div>
 </body>
 </html>

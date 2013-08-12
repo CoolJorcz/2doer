@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Let <%= @task.asker.name %> know that you've accepted :)</h1>
   <form class="let_them_know" action="/tasks/<%= @task.id %>/accept" method="post">
-    <input type="text" name="body" value="Hey @<%= task.asker.handle %>, I'll do it!">
+    <input type="text" name="body" value="Hey @<%= @task.asker.handle %>, I'll do it!">
     <input type="submit" name="submit_task" value="Accept!">
  </form>
  <br>

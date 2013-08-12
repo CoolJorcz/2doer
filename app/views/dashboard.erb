@@ -7,11 +7,12 @@
   </form>
 
 <div class="section group">
-  <div class="col span_1_of_3">
+  <div id="incoming" class="col span_1_of_3">
     <h2>Incoming</h2>
       <ul>
-        <% if @user.incoming %>
+        <% if @user.obligations.incoming %>
           <% @user.incoming.each do |task| %>
+        <li>
           <table>
            <tr>
             <td><%= task.body %></td>
@@ -19,6 +20,7 @@
             <td><a href ='/tasks/<%= task.id %>/reject'>NO</a></td>
            </tr>
           </table>
+      </li>
           <% end %>
         <% end %>
       </ul>
@@ -26,7 +28,7 @@
   <div class="col span_1_of_3">
     <h2>Accepted</h2>
       <ul>
-        <% if @user.accepted %>
+        <% if @user.obligations.accepted %>
           <% @user.accepted.each do |task| %>
            <li><a href="/tasks/<%=task.id%>/complete"><%= task.body %></a>DONE!</li>
           <% end %>
@@ -41,7 +43,7 @@
             <table>
              <tr>
               <td><a href="/tasks/<%=task.id%>"><%= task.body %></a></td>
-              <td><%= task.status %></td>
+              <td><%= task.bluejay %></td>
              </tr>
             </table>
           <% end %>

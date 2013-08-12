@@ -1,15 +1,14 @@
 class Task < ActiveRecord::Base
-  attr_writer :status
   belongs_to :doer, :class_name => "User"
   belongs_to :asker, :class_name => "User"
 
-  scope :incoming, -> { where(status: "incoming")}
-  scope :accepted, -> { where(status: "accepted")}
-  scope :completed, -> { where(status: "completed")}
-  scope :rejected, -> { where(status: "rejected")}
+  scope :incoming, -> { where(bluejay: "pending")}
+  scope :accepted, -> { where(bluejay: "accepted")}
+  scope :completed, -> { where(bluejay: "completed")}
+  scope :rejected, -> { where(bluejay: "rejected")}
 
   def accept_tweet(body, current_user)
-    self.status = "accepted"
+    self.bluejay = "accepted"
     self.save
     user = current_user
 
@@ -18,11 +17,11 @@ class Task < ActiveRecord::Base
                                   :oauth_token => user.token,
                                   :oauth_token_secret => user.secret)
 
-     client.update(body + " " + "#2doer")
+     client.update(body + self.tweet_id)
   end
 
   def decline_tweet(body, current_user)
-    self.status = "rejected"
+    self.bluejay = "rejected"
     self.save
     user = current_user
 
@@ -31,6 +30,6 @@ class Task < ActiveRecord::Base
                                   :oauth_token => user.token,
                                   :oauth_token_secret => user.secret)
 
-     client.update(body + " " + "#2doer")
+     client.update(body + self.tweet_id)
   end
 end

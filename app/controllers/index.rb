@@ -16,6 +16,7 @@ end
 
 get '/dashboard/:handle' do
   @user = User.find(session[:id])
+  
   erb :dashboard
 end
 
@@ -32,12 +33,12 @@ end
 
 get '/tasks/:id/accept' do
   @task = Task.find(params[:id])
-  erb :"_confirm"
+  erb :_confirm
 end
 
 get '/tasks/:id/reject' do
   @task = Task.find(params[:id])
-  erb :"_confirm"
+  erb :_confirm
 end
 
 post '/tasks/:id/accept' do

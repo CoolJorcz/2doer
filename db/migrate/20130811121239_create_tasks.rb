@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.text     :body
       t.text     :notes
-      t.string   :bluejay
+      t.string   :status
       t.string   :tweet_id
       t.integer  :doer_id
       t.integer  :asker_id

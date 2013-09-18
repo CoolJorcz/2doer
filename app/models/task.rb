@@ -2,13 +2,13 @@ class Task < ActiveRecord::Base
   belongs_to :doer, :class_name => "User"
   belongs_to :asker, :class_name => "User"
 
-  scope :incoming, -> { where(bluejay: "pending")}
-  scope :accepted, -> { where(bluejay: "accepted")}
-  scope :completed, -> { where(bluejay: "completed")}
-  scope :rejected, -> { where(bluejay: "rejected")}
+  scope :incoming, -> { where(status: "pending")}
+  scope :accepted, -> { where(status: "accepted")}
+  scope :completed, -> { where(status: "completed")}
+  scope :rejected, -> { where(status: "rejected")}
 
   def accept_tweet(body, current_user)
-    self.bluejay = "accepted"
+    self.status = "accepted"
     self.save
     user = current_user
 
@@ -20,7 +20,7 @@ class Task < ActiveRecord::Base
   end
 
   def decline_tweet(body, current_user)
-    self.bluejay = "rejected"
+    self.status = "rejected"
     self.save
     user = current_user
 
@@ -32,7 +32,7 @@ class Task < ActiveRecord::Base
   end
 
   def complete_tweet(curren_user)
-    self.bluejay = "completed"
+    self.status = "completed"
     self.save
 
     client = Twitter::Client.new(

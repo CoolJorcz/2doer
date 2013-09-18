@@ -9,11 +9,11 @@ get '/fetch' do
   twitters.reverse.map do |tweet|
     body = tweet[:text].gsub(/[@#][^\s]*\s?/, '')
     task = Task.create(:body => body,
-                :bluejay => "pending",
+                :status => "pending",
                 :tweet_id => tweet[:id].to_s,
                 :asker => User.where(:handle => tweet[:user][:screen_name]).first_or_create,
                 :doer => current_user)
-    task.bluejay = "pending"
+    task.status = "pending"
     task.save
     {:body => body, :id => task.id}
   end.to_json

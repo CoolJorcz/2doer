@@ -64,7 +64,7 @@ get '/tasks/:id/complete' do
   @task = Task.find(params[:id])
   @task.complete_tweet(current_user)
 
-  @task.update(:bluejay => "completed")
+  @task.update(:status => "completed")
   redirect "/dashboard/#{@task.doer.handle}"
 end
 # get '/invite' do 
